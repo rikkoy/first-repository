@@ -29,6 +29,42 @@ function toUpperCase(x: string | number): string | number {
     }
     return x;
 }
+
+interface TmpFuc {
+    (x: string): number;
+    (x: number): number;
+}
+
+// 関数のオーバーロードはinterfaceで定義する必要がある
+const upperHello: TmpFuc = function (x: string | number) { return 0 };
+upperHello('hi');
+upperHello(1);
+console.log(upperHello);
+// 関数型のインターセクションはオーバーロードになる
+// interface FuncA {
+//     (a: number, b: string): number;
+//     (a: string, b: number): number;
+// }
+// interface FuncB {
+//     (a: string): number;
+// }
+// // ↓オーバーロードされてる
+// let intersectionFunc: FuncA & FuncB;
+// intersectionFunc = function (a: number | string, b?: number | string): number { return 0 };
+
+//  関数型のユニオン型はパラメータがインターセクション型、戻り値はユニオン型になる
+interface FuncA {
+    (a: number): number;
+}
+interface FuncB {
+    (a: string): string;
+}
+// ↓オーバーロードされてる
+let unionFunc: FuncA | FuncB;
+unionFunc = function (a: string) { return '0' };
+unionFunc('');
+
+
 // in 演算子
 type NomadWorker = Engineer | Blogger;
 function describeProfile(nomadWorker: NomadWorker) {
@@ -84,21 +120,17 @@ interface Designer {
 }
 
 const designer: Designer = {
-    name:'P',
+    name: 'P',
     role: 'web'
 }
 console.log(designer.nanndemo);
-
-// 関数のオーバーロード
-const upperHello = toUpperCase('hello');
-console.log(upperHello);
 
 // Optional Chaining ? で値があるかないかをチェックする
 interface DownloadedData {
     id: number;
     user: {
-        name?:{
-            first:string;
+        name?: {
+            first: string;
             last: string;
         }
     }
@@ -125,6 +157,27 @@ enum Color {
     RED,
     BLUE
 }
-let target:string = 'hello';
+let target: string = 'hello';
 let source: 'hello' = 'hello';
 target = source;
+
+// rest parameter
+function advancedFn(...args: readonly [number, string?, boolean?, ...number[]]) {
+console.log(args.toString());
+}
+advancedFn(0, 'aaa', false, 1, 1, 1, 1);
+// 配列とタプルにreadonlyをつける.
+// argsが書き換えられなくなる。
+
+// const アサーション
+// 何のため？=>readonly, 定数になる！
+let milk = 'milk' as const;
+let drink = milk;
+const array = [10, 20] as const;
+const peter = {
+    name: 'Peter',
+    age: 38
+} as const;
+
+// 型の中でtypeof。便利～
+type PeterType = typeof peter;
