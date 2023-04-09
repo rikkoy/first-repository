@@ -1,5 +1,5 @@
-import { Foodable as FoodListable } from "./interfaces.js"
-import { Score } from "./score.js"
+import { Foodable as FoodListable } from "./interfaces"
+import { Score } from "./score"
 
 export class Food implements FoodListable {
     constructor(public element: HTMLDivElement) {
