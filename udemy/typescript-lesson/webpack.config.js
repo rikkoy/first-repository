@@ -6,7 +6,8 @@ module.exports = {
     entry: './src/food-app/main.ts',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/'
     },
     devtool: 'inline-source-map',
     module: {
@@ -17,6 +18,6 @@ module.exports = {
         }]
     },
     resolve: {
-        extensions: ['.ts']
+        extensions: ['.ts', '.js']
     }
 }
