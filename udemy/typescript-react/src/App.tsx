@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Hello from './components/Hello'
 
 function App() {
+  const [name, setName]=useState<string | null>('Momo');
   return (
     <div>
-      <h1>Hello</h1>
+      <Hello message={`I am ${name}!`}></Hello>
     </div>
   );
 }
