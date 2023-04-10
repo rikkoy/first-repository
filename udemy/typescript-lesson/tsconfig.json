@@ -100,7 +100,7 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true,
-    "noEmitOnError": true                                 /* Skip type checking all .d.ts files. */
+    // "noEmitOnError": true                                 /* Skip type checking all .d.ts files. */
   },
   // "include": [
   //   "./src/food-app"
@@ -112,6 +112,7 @@
   //   "node_modules" // デフォルトでexcludeされている。ほかに書くなら明示的に書く必要がある
   // ],
   "files": [
-    "./src/library.ts"
+    "./src/library.ts",
+    "./src/lodash.d.ts"
   ]
 }
