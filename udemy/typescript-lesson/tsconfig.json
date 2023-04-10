@@ -26,8 +26,8 @@
 
     /* Modules */
     "module": "ES6",                                /* Specify what module code is generated. */
-    "rootDir": "./src/food-app",                                  /* Specify the root folder within your source files. */
-    // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
+    "rootDir": "./src",                                  /* Specify the root folder within your source files. */
+    "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
@@ -44,7 +44,7 @@
     // "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'. */
 
     /* Emit */
-    // "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
+    "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
     // "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
     // "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
     // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
@@ -102,16 +102,16 @@
     "skipLibCheck": true,
     "noEmitOnError": true                                 /* Skip type checking all .d.ts files. */
   },
-  "include": [
-    "./src/food-app"
-    // includeしたもののみコンパイルする
-  ],
+  // "include": [
+  //   "./src/food-app"
+  //   // includeしたもののみコンパイルする
+  // ],
   // "exclude": [
   //   // コンパイルに含みたくないファイルを記載する。
   //   // ワイルドカードも使えるよ
   //   "node_modules" // デフォルトでexcludeされている。ほかに書くなら明示的に書く必要がある
   // ],
-  // "files": [
-  //   // 絶対パスか相対パスのみ
-  // ]
+  "files": [
+    "./src/library.ts"
+  ]
 }
