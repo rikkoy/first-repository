@@ -4,7 +4,7 @@ console.log(__dirname);
 
 module.exports = {
     mode: 'development',
-    entry: './src/library.ts',
+    entry: './src/react.tsx',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
@@ -13,12 +13,12 @@ module.exports = {
     devtool: 'inline-source-map',
     module: {
         rules: [{
-            test: /\.ts$/,
+            test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/
         }]
     },
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js']
     }
 }
